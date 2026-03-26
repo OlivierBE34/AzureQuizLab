@@ -1,23 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApplication1.Models;
 
 namespace WebApplication1.Pages
 {
     public class IndexModel : PageModel
     {
-        public bool MaintenanceMode { get; set; }
-
+        private readonly QuizDbContext _context;
         private readonly ILogger<IndexModel> _logger;
         private readonly IConfiguration _configuration;
 
-        public IndexModel(ILogger<IndexModel> logger, IConfiguration config)
+        public bool MaintenanceMode { get; set; }
+        public int QuizCount { get; set; }
+        public int QuestionCount { get; set; }
+
+        public IndexModel(QuizDbContext context, ILogger<IndexModel> logger, IConfiguration configuration)
         {
+            _context = context;
             _logger = logger;
-            _configuration = config;
+            _configuration = configuration;
         }
+
         public void OnGet()
         {
             MaintenanceMode = _configuration.GetValue<bool>("MaintenanceMode", false);
+
+            QuizCount = _context.Quizzes.Count();
+            QuestionCount = _context.Questions.Count();
         }
     }
 }
