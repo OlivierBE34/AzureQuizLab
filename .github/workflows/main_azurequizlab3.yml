@@ -52,7 +52,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'AzureQuizLab3'
+          app-name: 'AzureQuizLabWebApp-02'
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A2FE635E04434A9E9A0C3B50AB52B10B }}
