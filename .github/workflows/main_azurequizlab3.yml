@@ -17,9 +17,6 @@ jobs:
     permissions:
       contents: read #This is required for actions/checkout
     defaults:
-      run:
-        working-directory: WebApplication1
-
     steps:
       - uses: actions/checkout@v4
 
