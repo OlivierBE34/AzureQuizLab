@@ -32,5 +32,6 @@ public class CleanupQuizData
         }
 
         _logger.LogInformation("Ecriture en base effectuée");
+        // test
     }
 }
