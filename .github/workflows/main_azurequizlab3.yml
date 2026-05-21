@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
-    defaults:
     steps:
       - uses: actions/checkout@v4
 
